@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lazlow Ziebel - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --accent: #333333;
+      --muted: #666666;
+      --border: #e0e0e0;
+      --max-width: 900px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      margin-left: 1.25rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    main {
+      padding: 2rem 1.5rem 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .main-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 800px) {
+      .main-inner { grid-template-columns: 1fr; }
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      margin: 0 0 0.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      margin: 0 0 1rem;
+      color: var(--muted);
+    }
+
+    .hero-meta {
+      margin: 0 0 1.5rem;
+      font-size: 0.95rem;
+      color: var(--accent);
+      line-height: 1.5;
+    }
+
+    .hero-links a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+    }
+
+    section { margin-top: 2.5rem; }
+
+    section h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-list,
+    .writing-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .project-item,
+    .writing-item {
+      border-top: 1px solid var(--border);
+      padding: 0.9rem 0;
+    }
+
+    .project-item:last-child,
+    .writing-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .item-meta {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .item-desc {
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .side-panel {
+      border: 1px solid var(--border);
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .side-panel h3 {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .side-panel p {
+      margin: 0 0 0.7rem;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+
+    .side-panel ul {
+      margin: 0 0 0.8rem;
+      padding-left: 1.1rem;
+    }
+
+    .side-panel li { margin-bottom: 0.2rem; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 0.8rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">LZ</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#maps">GIS & Maps</a>
+        <a href="#writing">Writing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="main-inner">
+      <div>
+        
+        <!-- ABOUT SECTION -->
+        <section id="about">
+          <h1 class="hero-title">Lazlow Ziebel</h1>
+          <p class="hero-subtitle">GIS & Urban Planning Portfolio</p>
+
+          <p class="hero-meta">
+            I’m a GIS and urban planning professional pursuing my Master of Science in Urban & Regional Planning at the University of Iowa, with a concentration in Housing, Community, and Economic Development. I use GIS, spatial analysis, and cartography to support community planning, affordable housing, economic development, and data-informed decision-making.
+            <br><br>
+            I’ve worked as a GIS Intern with the City of Crystal Lake's Zoning & Planning Department and as a FEMA CRS Intern with River Action, focusing on flood safety, stormwater management, and Upper Mississippi River communities.
+          </p>
+
+          <div class="hero-links">
+            <a href="mailto:Lazlowziebel@gmail.com">Email</a>
+            <a href="https://github.com/lazlowziebel" target="_blank">GitHub</a>
+            <a href="https://github.com/lazlowziebel/gis-and-cartography-projects" target="_blank">GIS & Cartography Repo</a>
+            <a href="https://github.com/lazlowziebel/writing-samples" target="_blank">Writing Samples Repo</a>
+          </div>
+        </section>
+
+        <!-- GIS SECTION -->
+        <section id="maps">
+          <h2>GIS & Cartography Projects</h2>
+          <ul class="project-list">
+
+            <li class="project-item">
+              <div class="item-title">Drone Imagery & Photogrammetry</div>
+              <div class="item-meta">Pix4DMapper · DJI Drone</div>
+              <div class="item-desc">
+                Captured aerial imagery with DJI drones and processed the data in Pix4DMapper to create orthomosaics and elevation models for environmental and site analysis.
+              </div>
+            </li>
+
+            <li class="project-item">
+              <div class="item-title">General Cartography</div>
+              <div class="item-meta">ArcGIS Pro · QGIS</div>
+              <div class="item-desc">
+                A selection of maps and cartographic work highlighting spatial storytelling, symbology, geoprocessing, and neighborhood-focused mapping projects.
+              </div>
+            </li>
+
+          </ul>
+        </section>
+
+        <!-- WRITING SECTION -->
+        <section id="writing">
+          <h2>Writing Samples</h2>
+          <ul class="writing-list">
+
+            <li class="writing-item">
+              <div class="item-title">Neighborhood Comparison Report</div>
+              <div class="item-meta">Urban Planning · Spatial Analysis</div>
+              <div class="item-desc">
+                Comparative assessment of neighborhood conditions, land use, infrastructure, and livability based on field observations and spatial analysis.
+              </div>
+            </li>
+
+            <li class="writing-item">
+              <div class="item-title">TIF & Economic Development Analysis</div>
+              <div class="item-meta">Policy & Economic Development</div>
+              <div class="item-desc">
+                Evaluation of a TIF proposal focusing on fiscal impacts, zoning context, and local development implications.
+              </div>
+            </li>
+
+            <li class="writing-item">
+              <div class="item-title">Undergraduate Thesis & Feasibility Assessment</div>
+              <div class="item-meta">Environmental Studies · Applied Research</div>
+              <div class="item-desc">
+                Undergraduate thesis research and feasibility evaluation integrating planning principles, environmental analysis, and community context.
+              </div>
+            </li>
+
+            <li class="writing-item">
+              <div class="item-title">Planning Theory & Reflection</div>
+              <div class="item-meta">Planning Theory</div>
+              <div class="item-desc">
+                Essays exploring equity planning, communicative planning, radical planning, and the Just City framework.
+              </div>
+            </li>
+
+          </ul>
+        </section>
+      </div>
+
+      <!-- CONTACT & SKILLS SIDEBAR -->
+      <aside class="side-panel">
+        <h3>Contact</h3>
+        <p>Iowa City, IA</p>
+        <p><a href="mailto:Lazlowziebel@gmail.com">Lazlowziebel@gmail.com</a></p>
+        <p><a href="resume.pdf" target="_blank">Download Resume (PDF)</a></p>
+
+        <h3>Skills</h3>
+        <ul>
+          <li>ArcGIS Pro & ArcGIS Online</li>
+          <li>QGIS · Pix4DMapper · DJI Drone</li>
+          <li>Cartography & Data Visualization</li>
+          <li>Flood Risk & Hazard Mapping</li>
+          <li>Adobe Illustrator</li>
+          <li>Introductory Python</li>
+        </ul>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Lazlow Ziebel
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
