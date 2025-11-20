@@ -142,6 +142,22 @@
     .item-sub {
       color: var(--muted);
       font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .folder-link {
+      display: inline-block;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--accent);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: 0.2s ease;
+    }
+
+    .folder-link:hover {
+      border-bottom: 1px solid var(--accent);
+      color: black;
     }
 
     footer {
@@ -190,8 +206,6 @@
         <div class="hero-links">
           <a href="mailto:Lazlowziebel@gmail.com">Email</a>
           <a href="https://github.com/lazlowziebel" target="_blank">GitHub</a>
-          <a href="https://github.com/lazlowziebel/gis-and-cartography-projects" target="_blank">GIS</a>
-          <a href="https://github.com/lazlowziebel/writing-samples" target="_blank">Writing</a>
         </div>
       </section>
 
@@ -200,13 +214,11 @@
         <h2>GIS & Cartography</h2>
 
         <div class="card">
-          <div class="item-title">Drone Imagery & Photogrammetry</div>
-          <div class="item-sub">DJI drone imagery processed into orthomosaics & elevation models (Pix4DMapper).</div>
-        </div>
-
-        <div class="card">
-          <div class="item-title">General Cartography</div>
-          <div class="item-sub">Maps created in ArcGIS Pro and QGIS for neighborhood, environmental, and spatial analysis.</div>
+          <div class="item-title">GIS & Cartography Folder</div>
+          <div class="item-sub">
+            Browse maps, figures, and other GIS outputs.
+          </div>
+          <a class="folder-link" href="gis/" target="_blank">Open GIS folder</a>
         </div>
 
       </section>
@@ -216,23 +228,11 @@
         <h2>Writing Samples</h2>
 
         <div class="card">
-          <div class="item-title">Neighborhood Comparison Report</div>
-          <div class="item-sub">Fieldwork + map-driven comparison of neighborhood conditions.</div>
-        </div>
-
-        <div class="card">
-          <div class="item-title">TIF & Economic Development Analysis</div>
-          <div class="item-sub">Short evaluation of a local TIF and development outcomes.</div>
-        </div>
-
-        <div class="card">
-          <div class="item-title">Undergraduate Thesis & Feasibility Study</div>
-          <div class="item-sub">Environmental analysis + planning feasibility assessment.</div>
-        </div>
-
-        <div class="card">
-          <div class="item-title">Planning Theory Essays</div>
-          <div class="item-sub">Equity, communicative, and just city frameworks applied to practice.</div>
+          <div class="item-title">Writing Folder</div>
+          <div class="item-sub">
+            Browse reports, policy memos, thesis work, and planning theory essays.
+          </div>
+          <a class="folder-link" href="writing/" target="_blank">Open writing folder</a>
         </div>
 
       </section>
@@ -249,3 +249,4 @@
   </script>
 </body>
 </html>
+
