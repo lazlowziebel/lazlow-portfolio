@@ -15,20 +15,29 @@
     }
     h1 {
       font-size: 26px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+    p {
+      margin-bottom: 12px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 24px;
+    }
+    li {
+      margin-bottom: 8px;
     }
     a {
       color: #0056b3;
-      font-size: 16px;
       text-decoration: none;
-      display: block;
-      margin: 8px 0;
+      font-size: 16px;
     }
     a:hover {
       text-decoration: underline;
     }
     .back {
-      margin-top: 30px;
+      margin-top: 24px;
       font-size: 14px;
     }
   </style>
@@ -39,37 +48,21 @@
   <h1>GIS & Cartography Files</h1>
   <p>Click a file below to view or download.</p>
 
-  <!-- FILE LIST START -->
-  <ul id="file-list"></ul>
-  <!-- FILE LIST END -->
+  <ul>
+    <!-- These point to the PDFs in this folder -->
+    <li>
+      <a href="environmental_justice.pdf" target="_blank">
+        Environmental Justice Map (PDF)
+      </a>
+    </li>
+    <li>
+      <a href="general_ref.pdf" target="_blank">
+        General Reference Map (PDF)
+      </a>
+    </li>
+  </ul>
 
   <a class="back" href="../">← Back to main site</a>
-
-  <script>
-    // Auto-list files in this folder
-    fetch(".")
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const anchors = [...doc.querySelectorAll("a")];
-
-        const list = document.getElementById("file-list");
-
-        anchors
-          .filter(a => !a.href.endsWith("/"))      // ignore folders
-          .filter(a => !a.href.includes("index.html")) // ignore this page
-          .forEach(a => {
-            const li = document.createElement("li");
-            const link = document.createElement("a");
-            link.href = a.getAttribute("href");
-            link.textContent = a.textContent;
-            link.target = "_blank";
-            li.appendChild(link);
-            list.appendChild(li);
-          });
-      });
-  </script>
 
 </body>
 </html>
