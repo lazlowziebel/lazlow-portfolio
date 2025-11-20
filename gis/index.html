@@ -1,51 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GIS & Cartography Files</title>
+  <title>GIS & Cartography – Lazlow Ziebel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 40px;
       line-height: 1.6;
+      background: #fafafa;
+      color: #222;
     }
     h1 {
-      font-size: 24px;
+      font-size: 26px;
       margin-bottom: 20px;
     }
     a {
+      color: #0056b3;
+      font-size: 16px;
+      text-decoration: none;
       display: block;
       margin: 8px 0;
-      color: #0056b3;
-      text-decoration: none;
-      font-size: 16px;
     }
     a:hover {
       text-decoration: underline;
     }
+    .back {
+      margin-top: 30px;
+      font-size: 14px;
+    }
   </style>
 </head>
+
 <body>
+
   <h1>GIS & Cartography Files</h1>
-  <p>Click any item to view or download.</p>
+  <p>Click a file below to view or download.</p>
+
+  <!-- FILE LIST START -->
+  <ul id="file-list"></ul>
+  <!-- FILE LIST END -->
+
+  <a class="back" href="../">← Back to main site</a>
 
   <script>
-    // Automatically list all files in this folder
+    // Auto-list files in this folder
     fetch(".")
       .then(response => response.text())
-      .then(data => {
+      .then(html => {
         const parser = new DOMParser();
-        const htmlDoc = parser.parseFromString(data, "text/html");
-        const links = [...htmlDoc.querySelectorAll("a")];
+        const doc = parser.parseFromString(html, "text/html");
+        const anchors = [...doc.querySelectorAll("a")];
 
-        links
-          .filter(l => !l.href.endsWith("/")) // no subfolders
-          .filter(l => !l.textContent.includes("index.html"))
-          .forEach(l => {
-            const fileLink = document.createElement("a");
-            fileLink.href = l.href;
-            fileLink.textContent = l.textContent;
-            document.body.appendChild(fileLink);
+        const list = document.getElementById("file-list");
+
+        anchors
+          .filter(a => !a.href.endsWith("/"))      // ignore folders
+          .filter(a => !a.href.includes("index.html")) // ignore this page
+          .forEach(a => {
+            const li = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = a.getAttribute("href");
+            link.textContent = a.textContent;
+            link.target = "_blank";
+            li.appendChild(link);
+            list.appendChild(li);
           });
       });
   </script>
