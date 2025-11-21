@@ -10,36 +10,41 @@
 
   <style>
     :root {
-      --bg: #fafafa;
-      --text: #222;
-      --accent: #444;
-      --muted: #777;
-      --card-bg: #ffffff;
-      --max-width: 780px;
-      --font-main: "Inter", sans-serif;
-      --shadow: 0px 1px 3px rgba(0,0,0,0.08);
+      --bg: #f5f5fb;
+      --bg-card: #ffffff;
+      --text: #111827;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --muted: #6b7280;
+      --border-subtle: #e5e7eb;
+      --max-width: 960px;
+      --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       font-family: var(--font-main);
-      background: var(--bg);
+      background: radial-gradient(circle at top left, #e0f2fe 0, #f9fafb 45%, #f5f3ff 100%);
       color: var(--text);
       line-height: 1.65;
     }
 
+    /* Header / Nav */
     header {
-      padding: 1.3rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       display: flex;
       justify-content: center;
-      background: #ffffffaa;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(10px);
+      background: rgba(249, 250, 251, 0.85);
       position: sticky;
       top: 0;
       z-index: 10;
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
     }
 
     .header-inner {
@@ -52,24 +57,44 @@
 
     .logo {
       font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
 
     nav a {
-      margin-left: 1.2rem;
+      margin-left: 1.4rem;
       text-decoration: none;
       font-size: 0.95rem;
-      color: var(--accent);
-      transition: 0.2s;
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.2s ease;
     }
 
     nav a:hover {
-      color: black;
+      color: var(--text);
     }
 
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Layout */
     main {
-      padding: 2rem 1.5rem 4rem;
+      padding: 2.5rem 1.5rem 4rem;
       display: flex;
       justify-content: center;
     }
@@ -79,90 +104,201 @@
       max-width: var(--max-width);
     }
 
+    /* Hero section */
+    #about {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      grid-gap: 2.5rem;
+      align-items: start;
+    }
+
     h1.hero-title {
-      font-size: 2rem;
-      margin-bottom: 0.4rem;
+      font-size: clamp(2rem, 3vw, 2.4rem);
+      margin: 0 0 0.3rem;
       font-weight: 600;
     }
 
     .hero-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin: 0 0 1rem;
       color: var(--muted);
     }
 
     .hero-meta {
-      font-size: 1rem;
-      margin-bottom: 1.8rem;
-      color: var(--accent);
+      font-size: 0.98rem;
+      margin-bottom: 1.3rem;
+      color: #374151;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tag-chip {
+      font-size: 0.78rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      white-space: nowrap;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
     }
 
     .hero-links a {
-      display: inline-block;
-      margin-right: 1.1rem;
-      margin-bottom: 0.7rem;
-      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
       text-decoration: none;
-      color: var(--accent);
-      padding: 4px 0;
-      border-bottom: 1px solid transparent;
-      transition: 0.2s ease;
+      border: 1px solid var(--border-subtle);
+      color: #111827;
+      background: rgba(255, 255, 255, 0.9);
+      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+    }
+
+    .hero-links a.primary-link {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #f9fafb;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
     }
 
     .hero-links a:hover {
-      border-bottom: 1px solid var(--accent);
-      color: black;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+      background: #ffffff;
     }
 
-    section {
-      margin-top: 2.8rem;
+    .hero-links a.primary-link:hover {
+      background: #1d4ed8;
     }
 
-    section h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 1.2rem 1.4rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 1rem;
-    }
-
-    .item-title {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .item-sub {
+    .hero-note {
+      font-size: 0.82rem;
       color: var(--muted);
-      font-size: 0.9rem;
+    }
+
+    .hero-aside {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 1.2rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(209, 213, 219, 0.8);
+    }
+
+    .aside-title {
+      font-size: 0.95rem;
+      font-weight: 600;
       margin-bottom: 0.6rem;
     }
 
-    .folder-link {
-      display: inline-block;
+    .aside-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.8rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .aside-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .aside-label {
+      font-weight: 500;
+      color: #4b5563;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-gap: 1.5rem;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .section-card-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-card-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+
+    .section-card a.section-link {
+      align-self: flex-start;
+      margin-top: auto;
       font-size: 0.9rem;
       text-decoration: none;
       color: var(--accent);
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-      transition: 0.2s ease;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
     }
 
-    .folder-link:hover {
-      border-bottom: 1px solid var(--accent);
-      color: black;
+    .section-card a.section-link:hover {
+      background: #dbeafe;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
     }
 
     footer {
-      margin-top: 3rem;
-      padding: 1.5rem 1.25rem;
+      margin-top: 3.5rem;
+      padding: 1.5rem 1.25rem 2rem;
       font-size: 0.9rem;
       color: var(--muted);
       text-align: center;
@@ -177,12 +313,25 @@
       text-decoration: underline;
     }
 
+    @media (max-width: 800px) {
+      #about {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      main {
+        padding-top: 1.8rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo">LZ</div>
+      <div class="logo">LAZLOW ZIEBEL</div>
       <nav>
         <a href="#about">About</a>
         <a href="#maps">GIS</a>
@@ -194,53 +343,89 @@
   <main>
     <div class="main-inner">
 
-      <!-- ABOUT SECTION -->
+      <!-- ABOUT / HERO -->
       <section id="about">
-        <h1 class="hero-title">Lazlow Ziebel</h1>
-        <p class="hero-subtitle">GIS & Urban Planning</p>
+        <div>
+          <h1 class="hero-title">GIS & Urban Planning</h1>
+          <p class="hero-subtitle">Maps, spatial analysis, and writing focused on housing, community, and economic development.</p>
 
-        <p class="hero-meta">
-          I’m an urban planning professional pursuing my Master of Science in Urban & Regional Planning at the University of Iowa, with a concentration in Housing, Community, and Economic Development. I use GIS, spatial analysis, and cartography to support community planning, affordable housing, economic development, and data-informed decision-making.
-        </p>
+          <p class="hero-meta">
+            I’m a graduate student in Urban &amp; Regional Planning at the University of Iowa. I use GIS, cartography, and spatial data
+            to support community planning, affordable housing, and evidence-based policy.
+          </p>
 
-        <div class="hero-links">
-          <a href="mailto:Lazlowziebel@gmail.com">Email</a>
-          <a href="https://github.com/lazlowziebel" target="_blank">GitHub</a>
+          <div class="hero-tags">
+            <span class="tag-chip">ArcGIS Pro &amp; QGIS</span>
+            <span class="tag-chip">Housing &amp; Neighborhoods</span>
+            <span class="tag-chip">Economic Development</span>
+            <span class="tag-chip">Flooding &amp; Climate Risk</span>
+          </div>
+
+          <div class="hero-links">
+            <a class="primary-link" href="mailto:Lazlowziebel@gmail.com">Email me</a>
+            <a href="https://github.com/lazlowziebel" target="_blank">GitHub</a>
+            <a href="gis/" target="_blank">View GIS maps</a>
+            <a href="writing/" target="_blank">View writing</a>
+          </div>
+
+          <div class="hero-note">
+            Currently based in Iowa City, IA · Open to GIS & planning opportunities.
+          </div>
         </div>
+
+        <aside class="hero-aside">
+          <div class="aside-title">At a glance</div>
+          <ul class="aside-list">
+            <li><span class="aside-label">Program:</span> M.S. Urban &amp; Regional Planning, University of Iowa</li>
+            <li><span class="aside-label">Focus:</span> Housing, community &amp; economic development</li>
+            <li><span class="aside-label">Tools:</span> ArcGIS Pro, QGIS, drones / photogrammetry, cartography</li>
+          </ul>
+          <div class="aside-title">Resume</div>
+          <a href="resume.pdf" target="_blank">Open PDF resume →</a>
+        </aside>
       </section>
 
-      <!-- GIS -->
+      <!-- GIS & WRITING SUMMARY CARDS -->
       <section id="maps">
-        <h2>GIS & Cartography</h2>
-
-        <div class="card">
-          <div class="item-title">GIS & Cartography Folder</div>
-          <div class="item-sub">
-            Browse maps, spatial analyses, figures, and GIS outputs.
+        <h2>Featured Work</h2>
+        <div class="section-grid">
+          <div class="section-card">
+            <div>
+              <div class="section-card-title">GIS &amp; Cartography</div>
+              <div class="section-card-sub">
+                Maps and spatial analysis projects, including environmental justice, neighborhood change, and trail systems.
+              </div>
+              <div class="pill-row">
+                <span class="pill">Environmental justice maps</span>
+                <span class="pill">Reference basemaps</span>
+                <span class="pill">Trails &amp; parks</span>
+              </div>
+            </div>
+            <a class="section-link" href="gis/" target="_blank">Open GIS gallery</a>
           </div>
-          <a class="folder-link" href="gis/" target="_blank">Open GIS folder</a>
-        </div>
 
+          <div class="section-card" id="writing">
+            <div>
+              <div class="section-card-title">Writing Samples</div>
+              <div class="section-card-sub">
+                Planning reports and academic writing on neighborhoods, TIF and economic development, and long-form research.
+              </div>
+              <div class="pill-row">
+                <span class="pill">Neighborhood report</span>
+                <span class="pill">TIF analysis</span>
+                <span class="pill">Undergrad thesis</span>
+              </div>
+            </div>
+            <a class="section-link" href="writing/" target="_blank">Open writing samples</a>
+          </div>
+        </div>
       </section>
 
-      <!-- WRITING -->
-      <section id="writing">
-        <h2>Writing Samples</h2>
-
-        <div class="card">
-          <div class="item-title">Writing Folder</div>
-          <div class="item-sub">
-            Browse reports, policy analyses, essays, and planning theory writing.
-          </div>
-          <a class="folder-link" href="writing/" target="_blank">Open writing folder</a>
-        </div>
-
-      </section>
     </div>
   </main>
 
   <footer>
-    © <span id="year"></span> Lazlow Ziebel · 
+    © <span id="year"></span> Lazlow Ziebel ·
     <a href="resume.pdf" target="_blank">Resume</a>
   </footer>
 
