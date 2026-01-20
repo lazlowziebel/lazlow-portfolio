@@ -5,7 +5,7 @@
   <title>Lazlow Ziebel - Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Google Font: INTER -->
+  <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -22,9 +22,7 @@
       --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -84,13 +82,8 @@
       transition: width 0.2s ease;
     }
 
-    nav a:hover {
-      color: var(--text);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
+    nav a:hover { color: var(--text); }
+    nav a:hover::after { width: 100%; }
 
     /* Layout */
     main {
@@ -212,19 +205,37 @@
       color: var(--muted);
     }
 
-    .aside-list li {
-      margin-bottom: 0.25rem;
-    }
+    .aside-list li { margin-bottom: 0.25rem; }
 
     .aside-label {
       font-weight: 500;
       color: #4b5563;
     }
 
-    /* Sections */
-    section {
-      margin-top: 3rem;
+    /* Resume link styling (keeps your current minimalist look, but improves affordance) */
+    .resume-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--accent);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
     }
+
+    .resume-link:hover {
+      background: #dbeafe;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
+    }
+
+    /* Sections */
+    section { margin-top: 3rem; }
 
     section h2 {
       font-size: 1.25rem;
@@ -309,25 +320,16 @@
       text-decoration: none;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
 
     @media (max-width: 800px) {
-      #about {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .section-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      main {
-        padding-top: 1.8rem;
-      }
+      #about { grid-template-columns: minmax(0, 1fr); }
+      .section-grid { grid-template-columns: minmax(0, 1fr); }
+      main { padding-top: 1.8rem; }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="header-inner">
@@ -363,9 +365,9 @@
 
           <div class="hero-links">
             <a class="primary-link" href="mailto:Lazlowziebel@gmail.com">Email me</a>
-            <a href="https://github.com/lazlowziebel" target="_blank">GitHub</a>
-            <a href="gis/" target="_blank">View GIS maps</a>
-            <a href="writing/" target="_blank">View writing</a>
+            <a href="https://github.com/lazlowziebel" target="_blank" rel="noopener">GitHub</a>
+            <a href="gis/" target="_blank" rel="noopener">View GIS maps</a>
+            <a href="writing/" target="_blank" rel="noopener">View writing</a>
           </div>
 
           <div class="hero-note">
@@ -378,16 +380,20 @@
           <ul class="aside-list">
             <li><span class="aside-label">Program:</span> M.S. Urban &amp; Regional Planning, University of Iowa</li>
             <li><span class="aside-label">Focus:</span> Housing, community &amp; economic development</li>
-            <li><span class="aside-label">Tools:</span> ArcGIS Pro, QGIS, DJI Drone Operation, Photogrammertry, Python, Cartography</li>
+            <li><span class="aside-label">Tools:</span> ArcGIS Pro, QGIS, DJI Drone Operation, Photogrammetry, Python, Cartography</li>
           </ul>
+
           <div class="aside-title">Resume</div>
-          <a href="resume.pdf" target="_blank">Open PDF resume →</a>
+          <a class="resume-link" href="assets/resume/Ziebel_Resume.PDF" target="_blank" rel="noopener">
+            Open PDF resume →
+          </a>
         </aside>
       </section>
 
-      <!-- GIS & WRITING SUMMARY CARDS -->
+      <!-- FEATURED WORK -->
       <section id="maps">
         <h2>Featured Work</h2>
+
         <div class="section-grid">
           <div class="section-card">
             <div>
@@ -401,7 +407,7 @@
                 <span class="pill">Trails &amp; parks</span>
               </div>
             </div>
-            <a class="section-link" href="gis/" target="_blank">Open GIS gallery</a>
+            <a class="section-link" href="gis/" target="_blank" rel="noopener">Open GIS gallery</a>
           </div>
 
           <div class="section-card" id="writing">
@@ -416,7 +422,7 @@
                 <span class="pill">Undergrad thesis</span>
               </div>
             </div>
-            <a class="section-link" href="writing/" target="_blank">Open writing samples</a>
+            <a class="section-link" href="writing/" target="_blank" rel="noopener">Open writing samples</a>
           </div>
         </div>
       </section>
@@ -426,7 +432,7 @@
 
   <footer>
     © <span id="year"></span> Lazlow Ziebel ·
-    <a href="resume.pdf" target="_blank">Resume</a>
+    <a href="assets/resume/Ziebel_Resume.PDF" target="_blank" rel="noopener">Resume</a>
   </footer>
 
   <script>
