@@ -5,7 +5,6 @@
   <title>Lazlow Ziebel - Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -32,7 +31,6 @@
       line-height: 1.65;
     }
 
-    /* Header / Nav */
     header {
       padding: 1.1rem 1.5rem;
       display: flex;
@@ -63,9 +61,7 @@
 
     nav a {
       margin-left: 1.4rem;
-      text-decoratio
-::contentReference[oaicite:0]{index=0}
-n: none;
+      text-decoration: none;
       font-size: 0.95rem;
       color: var(--muted);
       position: relative;
@@ -87,7 +83,6 @@ n: none;
     nav a:hover { color: var(--text); }
     nav a:hover::after { width: 100%; }
 
-    /* Layout */
     main {
       padding: 2.5rem 1.5rem 4rem;
       display: flex;
@@ -99,7 +94,6 @@ n: none;
       max-width: var(--max-width);
     }
 
-    /* Hero section */
     #about {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
@@ -191,7 +185,6 @@ n: none;
       border: 1px solid rgba(209, 213, 219, 0.8);
     }
 
-    /* HEADSHOT (big, centered in the aside card) */
     .headshot {
       width: 180px;
       height: 180px;
@@ -225,7 +218,6 @@ n: none;
       color: #4b5563;
     }
 
-    /* Resume link styling */
     .resume-link {
       display: inline-flex;
       align-items: center;
@@ -238,16 +230,8 @@ n: none;
       border-radius: 999px;
       border: 1px solid #bfdbfe;
       background: #eff6ff;
-      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
     }
 
-    .resume-link:hover {
-      background: #dbeafe;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
-    }
-
-    /* Sections */
     section { margin-top: 3rem; }
 
     section h2 {
@@ -286,21 +270,6 @@ n: none;
       margin-bottom: 0.9rem;
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .pill {
-      font-size: 0.78rem;
-      padding: 0.16rem 0.55rem;
-      border-radius: 999px;
-      background: #f3f4f6;
-      color: #4b5563;
-    }
-
     .section-card a.section-link {
       align-self: flex-start;
       margin-top: auto;
@@ -311,13 +280,6 @@ n: none;
       border-radius: 999px;
       border: 1px solid #bfdbfe;
       background: #eff6ff;
-      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-    }
-
-    .section-card a.section-link:hover {
-      background: #dbeafe;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
     }
 
     footer {
@@ -328,137 +290,114 @@ n: none;
       text-align: center;
     }
 
-    footer a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    footer a:hover { text-decoration: underline; }
-
     @media (max-width: 800px) {
-      #about { grid-template-columns: minmax(0, 1fr); }
-      .section-grid { grid-template-columns: minmax(0, 1fr); }
-      main { padding-top: 1.8rem; }
+      #about { grid-template-columns: 1fr; }
+      .section-grid { grid-template-columns: 1fr; }
       .headshot { width: 140px; height: 140px; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">LAZLOW ZIEBEL</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="gis/" target="_blank" rel="noopener">GIS</a>
-        <a href="writing/" target="_blank" rel="noopener">Writing Samples</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="header-inner">
+    <div class="logo">LAZLOW ZIEBEL</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="gis/" target="_blank">GIS</a>
+      <a href="writing/" target="_blank">Writing Samples</a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <div class="main-inner">
+<main>
+  <div class="main-inner">
 
-      <!-- ABOUT / HERO -->
-      <section id="about">
-        <div>
-          <h1 class="hero-title">GIS & Urban Planning</h1>
-          <p class="hero-subtitle">Maps, spatial analysis, and writing focused on housing, community, and economic development.</p>
+    <section id="about">
+      <div>
+        <h1 class="hero-title">GIS & Urban Planning</h1>
+        <p class="hero-subtitle">Maps, spatial analysis, and writing focused on housing, community, and economic development.</p>
 
-          <p class="hero-meta">
-            I’m a graduate student in Urban &amp; Regional Planning at the University of Iowa. I use GIS, cartography, and spatial data
-            to support community planning, affordable housing, and evidence-based policy.
-          </p>
+        <p class="hero-meta">
+          I’m a graduate student in Urban &amp; Regional Planning at the University of Iowa. I use GIS, cartography, and spatial data
+          to support community planning, affordable housing, and evidence-based policy.
+        </p>
 
-          <div class="hero-tags">
-            <span class="tag-chip">ArcGIS Pro &amp; QGIS</span>
-            <span class="tag-chip">Housing &amp; Neighborhoods</span>
-            <span class="tag-chip">Economic Development</span>
-            <span class="tag-chip">Flooding &amp; Climate Risk</span>
-          </div>
-
-          <div class="hero-links">
-            <a class="primary-link" href="mailto:Lazlowziebel@gmail.com">Email me</a>
-            <a href="gis/" target="_blank" rel="noopener">View GIS maps</a>
-            <a href="writing/" target="_blank" rel="noopener">View writing samples</a>
-          </div>
-
-          <div class="hero-note">
-            Currently based in Iowa City, IA · Open to GIS & planning opportunities.
-          </div>
+        <div class="hero-tags">
+          <span class="tag-chip">ArcGIS Pro &amp; QGIS</span>
+          <span class="tag-chip">Housing &amp; Neighborhoods</span>
+          <span class="tag-chip">Economic Development</span>
+          <span class="tag-chip">Flooding &amp; Climate Risk</span>
         </div>
 
-        <aside class="hero-aside">
-          <!-- Option A image path (as requested) -->
-          <img class="headshot" src="assets/resume/img/headshot.JPEG" alt="Headshot of Lazlow Ziebel" />
+        <div class="hero-links">
+          <a class="primary-link" href="mailto:Lazlowziebel@gmail.com">Email me</a>
+          <a href="gis/" target="_blank">View GIS maps</a>
+          <a href="writing/" target="_blank">View writing samples</a>
+        </div>
 
-          <div class="aside-title">At a glance</div>
-          <ul class="aside-list">
-            <li><span class="aside-label">Program:</span> M.S. Urban &amp; Regional Planning, University of Iowa</li>
-            <li><span class="aside-label">Focus:</span> Housing, community &amp; economic development</li>
-            <li><span class="aside-label">Tools:</span> ArcGIS Pro, QGIS, DJI Drone Operation, Photogrammetry, Python, Cartography</li>
-          </ul>
+        <div class="hero-note">
+          Currently based in Iowa City, IA · Open to GIS & planning opportunities.
+        </div>
+      </div>
 
-          <div class="aside-title">Resume</div>
-          <a class="resume-link" href="assets/resume/Ziebel_Resume.pdf" target="_blank" rel="noopener">
-            Open PDF resume →
+      <aside class="hero-aside">
+        <img class="headshot" src="assets/resume/img/headshot.JPEG" alt="Headshot of Lazlow Ziebel" />
+
+        <div class="aside-title">At a glance</div>
+        <ul class="aside-list">
+          <li><span class="aside-label">Program:</span> M.S. Urban &amp; Regional Planning, University of Iowa</li>
+          <li><span class="aside-label">Focus:</span> Housing, community &amp; economic development</li>
+          <li><span class="aside-label">Tools:</span> ArcGIS Pro, QGIS, DJI Drone Operation, Photogrammetry, Python, Cartography</li>
+        </ul>
+
+        <div class="aside-title">Resume</div>
+        <a class="resume-link" href="assets/resume/Ziebel_Resume.pdf" target="_blank">
+          Open PDF resume →
+        </a>
+      </aside>
+    </section>
+
+    <!-- FEATURED WORK -->
+    <section id="featured">
+      <h2>Featured Work</h2>
+
+      <div class="section-grid">
+        <div class="section-card">
+          <div>
+            <div class="section-card-title">Environmental Justice Map</div>
+            <div class="section-card-sub">
+              Uranium contamination of drinking water in the Grand Canyon region.
+            </div>
+          </div>
+          <a class="section-link" href="gis/environmental_justice.pdf" target="_blank">
+            Open environmental_justice.pdf →
           </a>
-        </aside>
-      </section>
-
-      <!-- FEATURED WORK (specific uploads) -->
-      <section id="featured">
-        <h2>Featured Work</h2>
-
-        <div class="section-grid">
-          <!-- Featured GIS upload -->
-          <div class="section-card">
-            <div>
-              <div class="section-card-title">Environmental Justice Map</div>
-              <div class="section-card-sub">
-                A focused environmental justice mapping product with clear cartography and equity-oriented spatial analysis.
-              </div>
-              <div class="pill-row">
-                <span class="pill">PDF map</span>
-                <span class="pill">Environmental justice</span>
-                <span class="pill">ArcGIS Pro</span>
-              </div>
-            </div>
-            <a class="section-link" href="gis/environmental_justice.pdf" target="_blank" rel="noopener">
-              Open environmental_justice.pdf →
-            </a>
-          </div>
-
-          <!-- Featured Writing upload -->
-          <div class="section-card" id="writing">
-            <div>
-              <div class="section-card-title">Undergraduate Thesis</div>
-              <div class="section-card-sub">
-                Long-form research demonstrating independent analysis, literature synthesis, and evidence-based argumentation.
-              </div>
-              <div class="pill-row">
-                <span class="pill">Thesis</span>
-                <span class="pill">Research</span>
-                <span class="pill">Writing</span>
-              </div>
-            </div>
-            <a class="section-link" href="writing/Ziebel_Undergrad_Thesis.pdf" target="_blank" rel="noopener">
-              Open Ziebel_Undergrad_Thesis.pdf →
-            </a>
-          </div>
         </div>
-      </section>
 
-    </div>
-  </main>
+        <div class="section-card" id="writing">
+          <div>
+            <div class="section-card-title">Undergraduate Thesis</div>
+            <div class="section-card-sub">
+              Augustana College Senior Thesis: Assessing the Accuracy of Esri’s Tree Crown Detection Model Utilizing UAV Imagery.
+            </div>
+          </div>
+          <a class="section-link" href="writing/Ziebel_Undergrad_Thesis.pdf" target="_blank">
+            Open Ziebel_Undergrad_Thesis.pdf →
+          </a>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    © <span id="year"></span> Lazlow Ziebel ·
-    <a href="assets/resume/Ziebel_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-  </footer>
+  </div>
+</main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<footer>
+  © <span id="year"></span> Lazlow Ziebel
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
