@@ -32,6 +32,7 @@
       line-height: 1.65;
     }
 
+    /* Header / Nav */
     header {
       padding: 1.1rem 1.5rem;
       display: flex;
@@ -84,6 +85,7 @@
     nav a:hover { color: var(--text); }
     nav a:hover::after { width: 100%; }
 
+    /* Layout */
     main {
       padding: 2.5rem 1.5rem 4rem;
       display: flex;
@@ -95,6 +97,7 @@
       max-width: var(--max-width);
     }
 
+    /* Hero section */
     #about {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
@@ -102,10 +105,29 @@
       align-items: start;
     }
 
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
     h1.hero-title {
       font-size: clamp(2rem, 3vw, 2.4rem);
-      margin: 0 0 0.3rem;
+      margin: 0;
       font-weight: 600;
+    }
+
+    .headshot {
+      width: 86px;
+      height: 86px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.10);
+      background: #ffffff;
+      flex: 0 0 auto;
     }
 
     .hero-subtitle {
@@ -134,6 +156,7 @@
       background: var(--accent-soft);
       color: #1d4ed8;
       border: 1px solid #bfdbfe;
+      white-space: nowrap;
     }
 
     .hero-links {
@@ -161,6 +184,7 @@
       background: var(--accent);
       border-color: var(--accent);
       color: #f9fafb;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
     }
 
     .hero-links a:hover {
@@ -168,6 +192,8 @@
       box-shadow: var(--shadow-soft);
       background: #ffffff;
     }
+
+    .hero-links a.primary-link:hover { background: #1d4ed8; }
 
     .hero-note {
       font-size: 0.82rem;
@@ -196,15 +222,106 @@
       color: var(--muted);
     }
 
+    .aside-list li { margin-bottom: 0.25rem; }
+
+    .aside-label {
+      font-weight: 500;
+      color: #4b5563;
+    }
+
+    /* Resume link styling */
     .resume-link {
       display: inline-flex;
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.2rem;
       font-size: 0.9rem;
       text-decoration: none;
       color: var(--accent);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
       border: 1px solid #bfdbfe;
       background: #eff6ff;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    }
+
+    .resume-link:hover {
+      background: #dbeafe;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
+    }
+
+    /* Sections */
+    section { margin-top: 3rem; }
+
+    section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-gap: 1.5rem;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .section-card-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-card-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+
+    .section-card a.section-link {
+      align-self: flex-start;
+      margin-top: auto;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--accent);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    }
+
+    .section-card a.section-link:hover {
+      background: #dbeafe;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
     }
 
     footer {
@@ -220,8 +337,13 @@
       text-decoration: none;
     }
 
+    footer a:hover { text-decoration: underline; }
+
     @media (max-width: 800px) {
       #about { grid-template-columns: minmax(0, 1fr); }
+      .section-grid { grid-template-columns: minmax(0, 1fr); }
+      main { padding-top: 1.8rem; }
+      .headshot { width: 74px; height: 74px; }
     }
   </style>
 </head>
@@ -241,9 +363,15 @@
   <main>
     <div class="main-inner">
 
+      <!-- ABOUT / HERO -->
       <section id="about">
         <div>
-          <h1 class="hero-title">GIS & Urban Planning</h1>
+          <div class="hero-top">
+            <h1 class="hero-title">GIS & Urban Planning</h1>
+            <!-- Option A: headshot lives in assets/resume/img/headshot.JPEG -->
+            <img class="headshot" src="assets/resume/img/headshot.JPEG" alt="Headshot of Lazlow Ziebel" />
+          </div>
+
           <p class="hero-subtitle">Maps, spatial analysis, and writing focused on housing, community, and economic development.</p>
 
           <p class="hero-meta">
@@ -258,7 +386,6 @@
             <span class="tag-chip">Flooding &amp; Climate Risk</span>
           </div>
 
-          <!-- Buttons -->
           <div class="hero-links">
             <a class="primary-link" href="mailto:Lazlowziebel@gmail.com">Email me</a>
             <a href="gis/" target="_blank" rel="noopener">View GIS maps</a>
@@ -273,16 +400,53 @@
         <aside class="hero-aside">
           <div class="aside-title">At a glance</div>
           <ul class="aside-list">
-            <li><strong>Program:</strong> M.S. Urban &amp; Regional Planning, University of Iowa</li>
-            <li><strong>Focus:</strong> Housing, community &amp; economic development</li>
-            <li><strong>Tools:</strong> ArcGIS Pro, QGIS, DJI Drone Operation, Photogrammetry, Python, Cartography</li>
+            <li><span class="aside-label">Program:</span> M.S. Urban &amp; Regional Planning, University of Iowa</li>
+            <li><span class="aside-label">Focus:</span> Housing, community &amp; economic development</li>
+            <li><span class="aside-label">Tools:</span> ArcGIS Pro, QGIS, DJI Drone Operation, Photogrammetry, Python, Cartography</li>
           </ul>
 
           <div class="aside-title">Resume</div>
-          <a class="resume-link" href="assets/resume/Ziebel_Resume.pdf" target="_blank">
+          <a class="resume-link" href="assets/resume/Ziebel_Resume.pdf" target="_blank" rel="noopener">
             Open PDF resume →
           </a>
         </aside>
+      </section>
+
+      <!-- FEATURED WORK -->
+      <section id="maps">
+        <h2>Featured Work</h2>
+
+        <div class="section-grid">
+          <div class="section-card">
+            <div>
+              <div class="section-card-title">GIS &amp; Cartography</div>
+              <div class="section-card-sub">
+                Maps and spatial analysis projects, including environmental justice, neighborhood change, and trail systems.
+              </div>
+              <div class="pill-row">
+                <span class="pill">Environmental justice maps</span>
+                <span class="pill">Reference basemaps</span>
+                <span class="pill">Trails &amp; parks</span>
+              </div>
+            </div>
+            <a class="section-link" href="gis/" target="_blank" rel="noopener">Open GIS gallery</a>
+          </div>
+
+          <div class="section-card" id="writing">
+            <div>
+              <div class="section-card-title">Writing Samples</div>
+              <div class="section-card-sub">
+                Planning reports and academic writing on neighborhoods, TIF and economic development, and long-form research.
+              </div>
+              <div class="pill-row">
+                <span class="pill">Neighborhood report</span>
+                <span class="pill">TIF analysis</span>
+                <span class="pill">Undergrad thesis</span>
+              </div>
+            </div>
+            <a class="section-link" href="writing/" target="_blank" rel="noopener">Open writing samples</a>
+          </div>
+        </div>
       </section>
 
     </div>
@@ -290,7 +454,7 @@
 
   <footer>
     © <span id="year"></span> Lazlow Ziebel ·
-    <a href="assets/resume/Ziebel_Resume.pdf" target="_blank">Resume</a>
+    <a href="assets/resume/Ziebel_Resume.pdf" target="_blank" rel="noopener">Resume</a>
   </footer>
 
   <script>
