@@ -5,7 +5,6 @@
   <title>Lazlow Ziebel - Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -18,7 +17,7 @@
       --muted: #6b7280;
       --border-subtle: #e5e7eb;
       --max-width: 960px;
-      --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-main: "Inter", system-ui, sans-serif;
       --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
     }
 
@@ -32,7 +31,6 @@
       line-height: 1.65;
     }
 
-    /* Header / Nav */
     header {
       padding: 1.1rem 1.5rem;
       display: flex;
@@ -41,7 +39,6 @@
       background: rgba(249, 250, 251, 0.85);
       position: sticky;
       top: 0;
-      z-index: 10;
       border-bottom: 1px solid rgba(229, 231, 235, 0.8);
     }
 
@@ -49,7 +46,6 @@
       width: 100%;
       max-width: var(--max-width);
       display: flex;
-      align-items: center;
       justify-content: space-between;
     }
 
@@ -66,26 +62,8 @@
       text-decoration: none;
       font-size: 0.95rem;
       color: var(--muted);
-      position: relative;
-      padding-bottom: 2px;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 999px;
-      transition: width 0.2s ease;
-    }
-
-    nav a:hover { color: var(--text); }
-    nav a:hover::after { width: 100%; }
-
-    /* Layout */
     main {
       padding: 2.5rem 1.5rem 4rem;
       display: flex;
@@ -97,47 +75,25 @@
       max-width: var(--max-width);
     }
 
-    /* Hero section */
     #about {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      grid-gap: 2.5rem;
-      align-items: start;
-    }
-
-    .hero-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 0.3rem;
+      grid-template-columns: 3fr 2.5fr;
+      gap: 2.5rem;
     }
 
     h1.hero-title {
-      font-size: clamp(2rem, 3vw, 2.4rem);
-      margin: 0;
+      font-size: 2.3rem;
+      margin: 0 0 0.3rem;
       font-weight: 600;
-    }
-
-    .headshot {
-      width: 86px;
-      height: 86px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.10);
-      background: #ffffff;
-      flex: 0 0 auto;
     }
 
     .hero-subtitle {
       font-size: 1.05rem;
-      margin: 0 0 1rem;
+      margin-bottom: 1rem;
       color: var(--muted);
     }
 
     .hero-meta {
-      font-size: 0.98rem;
       margin-bottom: 1.3rem;
       color: #374151;
     }
@@ -151,65 +107,63 @@
 
     .tag-chip {
       font-size: 0.78rem;
-      padding: 0.18rem 0.6rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 999px;
       background: var(--accent-soft);
       color: #1d4ed8;
       border: 1px solid #bfdbfe;
-      white-space: nowrap;
     }
 
     .hero-links {
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
-      margin-bottom: 0.4rem;
     }
 
     .hero-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       padding: 0.45rem 0.9rem;
       border-radius: 999px;
-      font-size: 0.9rem;
       text-decoration: none;
       border: 1px solid var(--border-subtle);
       color: #111827;
-      background: rgba(255, 255, 255, 0.9);
-      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+      background: #fff;
+      font-size: 0.9rem;
     }
 
     .hero-links a.primary-link {
       background: var(--accent);
+      color: white;
       border-color: var(--accent);
-      color: #f9fafb;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
     }
-
-    .hero-links a:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-soft);
-      background: #ffffff;
-    }
-
-    .hero-links a.primary-link:hover { background: #1d4ed8; }
 
     .hero-note {
       font-size: 0.82rem;
       color: var(--muted);
+      margin-top: 0.5rem;
     }
 
     .hero-aside {
       background: var(--bg-card);
       border-radius: 16px;
-      padding: 1.2rem 1.3rem;
+      padding: 1.3rem;
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(209, 213, 219, 0.8);
     }
 
+    /* HEADSHOT */
+    .headshot {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 1.2rem auto;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+      background: white;
+    }
+
     .aside-title {
-      font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 0.6rem;
     }
@@ -217,248 +171,106 @@
     .aside-list {
       list-style: none;
       padding: 0;
-      margin: 0 0 0.8rem;
       font-size: 0.88rem;
       color: var(--muted);
     }
-
-    .aside-list li { margin-bottom: 0.25rem; }
 
     .aside-label {
       font-weight: 500;
       color: #4b5563;
     }
 
-    /* Resume link styling */
     .resume-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 0.2rem;
-      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
       text-decoration: none;
       color: var(--accent);
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid #bfdbfe;
-      background: #eff6ff;
-      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-    }
-
-    .resume-link:hover {
-      background: #dbeafe;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
-    }
-
-    /* Sections */
-    section { margin-top: 3rem; }
-
-    section h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #111827;
-    }
-
-    .section-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      grid-gap: 1.5rem;
-    }
-
-    .section-card {
-      background: var(--bg-card);
-      border-radius: 16px;
-      padding: 1.3rem 1.4rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .section-card-title {
-      font-size: 1.02rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .section-card-sub {
-      color: var(--muted);
       font-size: 0.9rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .pill {
-      font-size: 0.78rem;
-      padding: 0.16rem 0.55rem;
-      border-radius: 999px;
-      background: #f3f4f6;
-      color: #4b5563;
-    }
-
-    .section-card a.section-link {
-      align-self: flex-start;
-      margin-top: auto;
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: var(--accent);
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid #bfdbfe;
-      background: #eff6ff;
-      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-    }
-
-    .section-card a.section-link:hover {
-      background: #dbeafe;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
     }
 
     footer {
-      margin-top: 3.5rem;
-      padding: 1.5rem 1.25rem 2rem;
+      text-align: center;
       font-size: 0.9rem;
       color: var(--muted);
-      text-align: center;
+      margin-top: 3rem;
     }
-
-    footer a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    footer a:hover { text-decoration: underline; }
 
     @media (max-width: 800px) {
-      #about { grid-template-columns: minmax(0, 1fr); }
-      .section-grid { grid-template-columns: minmax(0, 1fr); }
-      main { padding-top: 1.8rem; }
-      .headshot { width: 74px; height: 74px; }
+      #about { grid-template-columns: 1fr; }
+      .headshot { width: 140px; height: 140px; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">LAZLOW ZIEBEL</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#maps">GIS</a>
-        <a href="#writing">Writing</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="header-inner">
+    <div class="logo">LAZLOW ZIEBEL</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#maps">GIS</a>
+      <a href="#writing">Writing Samples</a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <div class="main-inner">
+<main>
+  <div class="main-inner">
+    <section id="about">
+      <div>
+        <h1 class="hero-title">GIS & Urban Planning</h1>
+        <p class="hero-subtitle">Maps, spatial analysis, and writing focused on housing, community, and economic development.</p>
 
-      <!-- ABOUT / HERO -->
-      <section id="about">
-        <div>
-          <div class="hero-top">
-            <h1 class="hero-title">GIS & Urban Planning</h1>
-            <!-- Option A: headshot lives in assets/resume/img/headshot.JPEG -->
-            <img class="headshot" src="assets/resume/img/headshot.JPEG" alt="Headshot of Lazlow Ziebel" />
-          </div>
+        <p class="hero-meta">
+          I’m a graduate student in Urban &amp; Regional Planning at the University of Iowa. I use GIS, cartography, and spatial data
+          to support community planning, affordable housing, and evidence-based policy.
+        </p>
 
-          <p class="hero-subtitle">Maps, spatial analysis, and writing focused on housing, community, and economic development.</p>
-
-          <p class="hero-meta">
-            I’m a graduate student in Urban &amp; Regional Planning at the University of Iowa. I use GIS, cartography, and spatial data
-            to support community planning, affordable housing, and evidence-based policy.
-          </p>
-
-          <div class="hero-tags">
-            <span class="tag-chip">ArcGIS Pro &amp; QGIS</span>
-            <span class="tag-chip">Housing &amp; Neighborhoods</span>
-            <span class="tag-chip">Economic Development</span>
-            <span class="tag-chip">Flooding &amp; Climate Risk</span>
-          </div>
-
-          <div class="hero-links">
-            <a class="primary-link" href="mailto:Lazlowziebel@gmail.com">Email me</a>
-            <a href="gis/" target="_blank" rel="noopener">View GIS maps</a>
-            <a href="writing/" target="_blank" rel="noopener">View writing samples</a>
-          </div>
-
-          <div class="hero-note">
-            Currently based in Iowa City, IA · Open to GIS & planning opportunities.
-          </div>
+        <div class="hero-tags">
+          <span class="tag-chip">ArcGIS Pro &amp; QGIS</span>
+          <span class="tag-chip">Housing &amp; Neighborhoods</span>
+          <span class="tag-chip">Economic Development</span>
+          <span class="tag-chip">Flooding &amp; Climate Risk</span>
         </div>
 
-        <aside class="hero-aside">
-          <div class="aside-title">At a glance</div>
-          <ul class="aside-list">
-            <li><span class="aside-label">Program:</span> M.S. Urban &amp; Regional Planning, University of Iowa</li>
-            <li><span class="aside-label">Focus:</span> Housing, community &amp; economic development</li>
-            <li><span class="aside-label">Tools:</span> ArcGIS Pro, QGIS, DJI Drone Operation, Photogrammetry, Python, Cartography</li>
-          </ul>
-
-          <div class="aside-title">Resume</div>
-          <a class="resume-link" href="assets/resume/Ziebel_Resume.pdf" target="_blank" rel="noopener">
-            Open PDF resume →
-          </a>
-        </aside>
-      </section>
-
-      <!-- FEATURED WORK -->
-      <section id="maps">
-        <h2>Featured Work</h2>
-
-        <div class="section-grid">
-          <div class="section-card">
-            <div>
-              <div class="section-card-title">GIS &amp; Cartography</div>
-              <div class="section-card-sub">
-                Maps and spatial analysis projects, including environmental justice, neighborhood change, and trail systems.
-              </div>
-              <div class="pill-row">
-                <span class="pill">Environmental justice maps</span>
-                <span class="pill">Reference basemaps</span>
-                <span class="pill">Trails &amp; parks</span>
-              </div>
-            </div>
-            <a class="section-link" href="gis/" target="_blank" rel="noopener">Open GIS gallery</a>
-          </div>
-
-          <div class="section-card" id="writing">
-            <div>
-              <div class="section-card-title">Writing Samples</div>
-              <div class="section-card-sub">
-                Planning reports and academic writing on neighborhoods, TIF and economic development, and long-form research.
-              </div>
-              <div class="pill-row">
-                <span class="pill">Neighborhood report</span>
-                <span class="pill">TIF analysis</span>
-                <span class="pill">Undergrad thesis</span>
-              </div>
-            </div>
-            <a class="section-link" href="writing/" target="_blank" rel="noopener">Open writing samples</a>
-          </div>
+        <div class="hero-links">
+          <a class="primary-link" href="mailto:Lazlowziebel@gmail.com">Email me</a>
+          <a href="gis/">View GIS maps</a>
+          <a href="writing/">Writing samples</a>
         </div>
-      </section>
 
-    </div>
-  </main>
+        <div class="hero-note">
+          Currently based in Iowa City, IA · Open to GIS & planning opportunities.
+        </div>
+      </div>
 
-  <footer>
-    © <span id="year"></span> Lazlow Ziebel ·
-    <a href="assets/resume/Ziebel_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-  </footer>
+      <aside class="hero-aside">
+        <img class="headshot" src="assets/resume/img/headshot.JPEG" alt="Headshot of Lazlow Ziebel" />
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+        <div class="aside-title">At a glance</div>
+        <ul class="aside-list">
+          <li><span class="aside-label">Program:</span> M.S. Urban &amp; Regional Planning, University of Iowa</li>
+          <li><span class="aside-label">Focus:</span> Housing, community &amp; economic development</li>
+          <li><span class="aside-label">Tools:</span> ArcGIS Pro, QGIS, DJI Drone Operation, Photogrammetry, Python, Cartography</li>
+        </ul>
+
+        <div class="aside-title">Resume</div>
+        <a class="resume-link" href="assets/resume/Ziebel_Resume.pdf" target="_blank">Open PDF resume →</a>
+      </aside>
+    </section>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Lazlow Ziebel
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
